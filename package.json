@@ -1,0 +1,92 @@
+{
+  "name": "ai-assistant",
+  "private": true,
+  "version": "1.0.0",
+  "description": "阳大壮AI智能助手，基于智谱GLM-4大语言模型",
+  "author": "阳大壮AI团队",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"npm run dev\" \"electron .\"",
+    "electron:build": "cross-env ELECTRON_BUILDER_BINARIES_MIRROR=https://npmmirror.com/mirrors/electron-builder-binaries/ npm run build && electron-builder",
+    "electron:preview": "npm run build && electron ."
+  },
+  "build": {
+    "appId": "com.yangdazhuang.ai",
+    "productName": "阳大壮AI",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "public/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "public",
+        "to": "public"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/robot-avatar.ico",
+      "sign": null
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "icon": "public/robot-avatar.png",
+      "category": "Utility"
+    },
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    },
+    "forceCodeSigning": false,
+    "asar": true,
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "include": "build/installer.nsh",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "阳大壮AI",
+      "installerIcon": "public/robot-avatar.ico",
+      "uninstallerIcon": "public/robot-avatar.ico"
+    }
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.0",
+    "@ant-design/pro-components": "^2.8.2",
+    "antd": "^5.14.1",
+    "axios": "^1.7.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.22.1",
+    "react-syntax-highlighter": "^15.6.1"
+  },
+  "devDependencies": {
+    "@types/electron": "^1.4.38",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.0.2",
+    "electron-builder": "^22.14.13",
+    "terser": "^5.37.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
+  }
+}
