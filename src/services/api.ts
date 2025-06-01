@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { message } from 'antd';
 
-const API_KEY = '9bb81a5b567700ebe717d4fc9e36a6b3.2wPndykEhrstCCWC';
+const API_KEY = '你的key';
 const BASE_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
 
 const SYSTEM_PROMPT = `你是阳大壮智能助手，是一位全能大师，父亲是阳子`;
