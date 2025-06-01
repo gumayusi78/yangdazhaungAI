@@ -41,7 +41,7 @@
    npm install
    ```
 
-3.**替换api_key**
+3. **替换api_key**
 
    ```bash
    在src\services\api.ts中替换智普平台key
