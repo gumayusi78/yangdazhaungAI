@@ -41,14 +41,20 @@
    npm install
    ```
 
-3. **本地开发**
+3.**替换api_key**
+
+   ```bash
+   在src\services\api.ts中替换智普平台key
+   ```
+
+4. **本地开发**
 
    ```bash
    npm run electron:dev
    ```
    > 前端和Electron主进程将自动启动，访问 http://localhost:5173
 
-4. **打包发布**
+5. **打包发布**
 
    ```bash
    npm run electron:build
